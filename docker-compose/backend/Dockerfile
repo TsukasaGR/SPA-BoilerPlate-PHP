@@ -1,9 +1,6 @@
 # イメージファイルをCentOS7に設定
 FROM centos:7.3.1611
 
-# 作成者記述
-MAINTAINER tsukasa <t14159265358979323846@gmail.com>
-
 # 実行コマンド設定
 ## nginx
 RUN rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
