@@ -52,7 +52,7 @@ SPAを始める際にサクッと環境構築を行うためのボイラープ�
 # 主な使い方
 
 1. フロントエンドでnpm installする場合
-    ```
+    ```shell
     # ホストOSにて
     $ docker exec -it frontend bash
     # コンテナにて
@@ -61,7 +61,7 @@ SPAを始める際にサクッと環境構築を行うためのボイラープ�
     ```
 
 1. バックエンドでcomposer installする場合
-    ```
+    ```shell
     # ホストOSにて
     $ docker exec -it backend bash
     # コンテナにて
