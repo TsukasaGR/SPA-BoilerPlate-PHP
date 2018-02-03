@@ -1,0 +1,6 @@
+/.idea/*
+/docker-compose/api/log/nginx/*
+/docker-compose/api/log/php-fpm/*
+/docker-compose/jcspicks/log/nginx/*
+/docker-compose/db/*
+!.gitkeep

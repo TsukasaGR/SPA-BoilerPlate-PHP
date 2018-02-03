@@ -1,0 +1,39 @@
+version: '2'
+services:
+  frontend:
+    container_name: frontend
+    build: ./docker-compose/frontend
+    ports:
+      - 80:80
+      - 8080:8080
+    volumes:
+      - ./frontend:/var/www/html
+      - ./docker-compose/frontend/log/nginx:/var/log/nginx
+    command: /sbin/init
+    privileged: true
+  backend:
+    container_name: backend
+    build: ./docker-compose/backend
+    ports:
+      - 8000:80
+    links:
+      - "app-db:app-db"
+    volumes:
+      - ./backend:/var/www/html
+      - ./docker-compose/backend/log/nginx:/var/log/nginx
+      - ./docker-compose/backend/log/php-fpm:/var/log/php-fpm
+    environment:
+      TZ: "Asia/Tokyo"
+    command: /sbin/init
+    privileged: true
+  app-db:
+    container_name: app-db
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      TZ: "Asia/Tokyo"
+    ports:
+      - 3306:3306
+    volumes:
+      - ./docker-compose/db:/var/lib/mysql
+    privileged: true
