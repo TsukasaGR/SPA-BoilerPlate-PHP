@@ -16,8 +16,8 @@ services:
     build: ./docker-compose/backend
     ports:
       - 8000:80
-    links:
-      - "app-db:app-db"
+    networks:
+      - app_network
     volumes:
       - ./backend:/var/www/html
       - ./docker-compose/backend/log/nginx:/var/log/nginx
@@ -34,6 +34,10 @@ services:
       TZ: "Asia/Tokyo"
     ports:
       - 3306:3306
+    networks:
+      - app_network
     volumes:
       - ./docker-compose/db:/var/lib/mysql
     privileged: true
+networks:
+  app_network:
