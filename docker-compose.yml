@@ -9,6 +9,8 @@ services:
     volumes:
       - ./frontend:/var/www/html
       - ./docker-compose/frontend/log/nginx:/var/log/nginx
+    environment:
+      TZ: "Asia/Tokyo"
     command: /sbin/init
     privileged: true
   backend:
