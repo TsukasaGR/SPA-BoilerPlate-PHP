@@ -16,7 +16,7 @@ RUN yum -y update openssl
 RUN yum-config-manager --enable cr
 RUN yum -y install nodejs npm
 RUN npm install -g n
-RUN n latest
+#RUN n latest
 
 RUN npm install -g npm-check-updates
 RUN npm install -g yarn
